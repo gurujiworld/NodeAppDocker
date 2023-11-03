@@ -1,7 +1,7 @@
 env:
   DOCKER_HUB_PASSWORD: "bunty@123"
 steps:  
-  - label: ":dockerlogin:"
+  - label: ":docker:"
     command: "bash .buildkite/run_build.sh"
     plugins:
       - docker-login#v2.0.1:

@@ -1,3 +1,5 @@
+env:
+  DOCKER_HUB_PASSWORD: "bunty@123"
 steps:  
   - label: ":dockerlogin:"
     command: "bash .buildkite/run_build.sh"

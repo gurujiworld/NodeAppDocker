@@ -1,6 +1,6 @@
 steps:  
   - label: "Docker Login"
-    command: "run_build.sh"
+    command: "./.buildkite/run_build.sh"
     plugins:
       - docker-login#v2.0.1:
           username: 8484810020

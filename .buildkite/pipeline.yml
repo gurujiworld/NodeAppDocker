@@ -1,8 +1,10 @@
 env:
   DOCKER_HUB_PASSWORD: "bunty@123"
+  VERSION: "v1.0.0"
+
 steps:  
   - label: ":docker:"
-    command: "bash .buildkite/run_build.sh"
+    command: "./.buildkite/run_build.sh"
     plugins:
       - docker-login#v2.0.1:
           username: 8484810020
@@ -12,6 +14,8 @@ steps:
     plugins:
       - docker-compose#v3.9.0:
           run: app
+  - label: "ImgVersion"
+    command: "VERSION=$(echo $VERSION | awk -F. -v OFS=. 'NF==1{print ++$NF}; NF>1{$NF=sprintf("%0*d", length($NF), ($NF+1)); print}')
 
   - label: ":dockerhub:"
-    command: docker push 8484810020/buildkite-nodejs:$BUILDKITE_BUILD_NUMBER
+    command: docker push 8484810020/buildkite-nodejs:$VERSION

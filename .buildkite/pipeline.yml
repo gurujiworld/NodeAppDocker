@@ -4,7 +4,7 @@ steps:
     plugins:
       - docker-login#v2.0.1:
           username: 8484810020
-          password-env: DOCKER_HUB_PASSWORD
+          password-env: $DOCKER_HUB_PASSWORD
   - name: ":node:"
     command: npm test
     plugins:

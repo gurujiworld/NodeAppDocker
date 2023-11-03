@@ -1,3 +1,3 @@
 #!/bin/bash
 
-DOCKER_HUB_PASSWORD="bunty@123"
+export DOCKER_HUB_PASSWORD=bunty@123

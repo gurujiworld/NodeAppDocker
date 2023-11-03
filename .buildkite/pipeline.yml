@@ -1,5 +1,5 @@
 steps:  
-  - label: "Docker Login"
+  - label: ":dockerlogin:"
     command: "./.buildkite/run_build.sh"
     plugins:
       - docker-login#v2.0.1:

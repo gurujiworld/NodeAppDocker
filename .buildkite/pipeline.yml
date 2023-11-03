@@ -13,5 +13,5 @@ steps:
       - docker-compose#v3.9.0:
           run: app
 
-  - label: ":hub.docker.com:"
+  - label: ":dockerhub:"
     command: docker push 8484810020/buildkite-nodejs:$BUILDKITE_BUILD_NUMBER

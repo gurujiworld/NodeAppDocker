@@ -17,4 +17,5 @@ steps:
     command: "./version.sh"
 
   - label: ":dockerhub:"
+    command: echo $VERSION
     command: docker push 8484810020/buildkite-nodejs:$VERSION

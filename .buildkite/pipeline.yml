@@ -8,6 +8,9 @@ steps:
       - docker-login#v2.0.1:
           username: 8484810020
           password-env: DOCKER_HUB_PASSWORD
+  - label: ":ecr:"
+    command: aws ecr get-login-password --region ap-south-1 | docker login --username AWS --password-stdin 433375820816.dkr.ecr.ap-south-1.amazonaws.com
+  
   - name: ":node:"
     command: npm test
     plugins:
@@ -17,4 +20,4 @@ steps:
     command: "./version.sh"
 
   - label: ":dockerhub:"
-    command: docker push 8484810020/buildkite-nodejs:$BUILDKITE_BUILD_NUMBER
+    command: docker push 433375820816.dkr.ecr.ap-south-1.amazonaws.com/nodeapp:$BUILDKITE_BUILD_NUMBER

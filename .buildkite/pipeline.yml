@@ -8,11 +8,13 @@ steps:
       - docker-login#v2.0.1:
           username: 8484810020
           password-env: DOCKER_HUB_PASSWORD
-          
+
   - label: ":ecr:"
     plugins:
       - seek-oss/docker-ecr-publish#v2.4.0:
           ecr-name: nodeapp
+          account-id: 433375820816 
+          region: ap-south-1
 
   - name: ":node:"
     command: npm test

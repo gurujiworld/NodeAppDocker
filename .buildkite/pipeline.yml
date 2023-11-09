@@ -1,7 +1,18 @@
 env:
   DOCKER_HUB_PASSWORD: "bunty@123"
   
-steps:  
+steps:
+  - label: ":terraform:" 
+    commands: |
+      cd ecs
+      terraform init
+      terraform validate
+      terraform plan -out plan.tf
+    artifact_paths:
+      - "ecs/*"
+    concurrency: 1
+    concurrency_group: ecs
+    
   - label: ":docker:"
     command: "./.buildkite/run_build.sh"
     plugins:

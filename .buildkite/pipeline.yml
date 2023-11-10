@@ -2,17 +2,23 @@ env:
   DOCKER_HUB_PASSWORD: "bunty@123"
   
 steps:
+  - input: "Information please"
+    fields:
+      - text: "What is the date today?"
+        key: "todays-date"
+        
   - label: ":terraform:" 
     commands: |
       cd ecs
       terraform init
       terraform validate
       terraform plan -out plan.tf
+      terraform deploy -auto-approve
     artifact_paths:
       - "ecs/*"
     concurrency: 1
     concurrency_group: ecs
-    
+
   - label: ":docker:"
     command: "./.buildkite/run_build.sh"
     plugins:
@@ -26,6 +32,7 @@ steps:
     plugins:
       - docker-compose#v3.9.0:
           run: app
+
   - label: "ImgVersion"
     command: "./version.sh"
 

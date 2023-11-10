@@ -46,4 +46,6 @@ steps:
 
 
   - label: ":dockerhub:"
-    command: docker push 433375820816.dkr.ecr.ap-south-1.amazonaws.com/nodeapp:$BUILDKITE_BUILD_NUMBER
+    commands: |
+      docker push 433375820816.dkr.ecr.ap-south-1.amazonaws.com/nodeapp:$BUILDKITE_BUILD_NUMBER
+      docker rmi $(docker images -aq)

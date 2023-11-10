@@ -13,7 +13,7 @@ steps:
       terraform init
       terraform validate
       terraform plan -out plan.tf
-      terraform $ACTION "plan.tf" -auto-approve
+      terraform apply -auto-approve
     artifact_paths:
       - "ecs/*"
     concurrency: 1

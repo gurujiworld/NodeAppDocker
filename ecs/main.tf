@@ -62,7 +62,7 @@ resource "aws_ecs_task_definition" "hello_world" {
   network_mode             = "awsvpc"
   requires_compatibilities = ["FARGATE"]
   cpu                      = 1024
-  memory                   = 2048
+  memory                   = 1024
 
   container_definitions = <<DEFINITION
 [
@@ -121,7 +121,7 @@ resource "aws_ecs_service" "hello_world" {
   load_balancer {
     target_group_arn = aws_lb_target_group.hello_world.id
     container_name   = "hello-world-app"
-    container_port   = 3000
+    container_port   = 8080
   }
 
   depends_on = [aws_lb_listener.hello_world]

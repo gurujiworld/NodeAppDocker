@@ -2,18 +2,18 @@ env:
   DOCKER_HUB_PASSWORD: "bunty@123"
   
 steps:
-  - input: "Information please"
+  - input: "Please Provide Terraform Action"
     fields:
-      - text: "What is the date today?"
-        key: "todays-date"
-        
+      - text: "Terraform apply/destroy?"
+        key: "ACTION"
+
   - label: ":terraform:" 
     commands: |
       cd ecs
       terraform init
       terraform validate
       terraform plan -out plan.tf
-      terraform deploy -auto-approve
+      terraform $ACTION -auto-approve
     artifact_paths:
       - "ecs/*"
     concurrency: 1

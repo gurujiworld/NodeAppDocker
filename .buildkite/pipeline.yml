@@ -6,6 +6,11 @@ steps:
     fields:
       - text: "Terraform apply/destroy?"
         key: "ACTION"
+        options:
+          - label: "Destroy"
+            value: "destroy"
+          - label: "Deploy"
+            value: "apply"
 
   - label: ":terraform:" 
     commands: |
@@ -13,7 +18,7 @@ steps:
       terraform init
       terraform validate
       terraform plan -out plan.tf
-      terraform apply "plan.tf"
+      terraform $ACTION "plan.tf"
     artifact_paths:
       - "ecs/*"
     concurrency: 1

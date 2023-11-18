@@ -2,7 +2,7 @@ env:
   DOCKER_HUB_PASSWORD: "bunty@123"
   
 steps:
-  - input: "Please Provide Terraform Action"
+  - input: ":rocket: Infra Action"
     fields:
       - select: "Terraform apply/destroy?"
         key: "ACTION"

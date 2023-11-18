@@ -18,7 +18,7 @@ steps:
       terraform init
       terraform validate
       terraform plan -out plan.tf
-      terraform $ACTION "plan.tf"
+      terraform destroy "plan.tf"
     artifact_paths:
       - "ecs/*"
     concurrency: 1

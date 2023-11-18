@@ -17,8 +17,8 @@ steps:
       cd ecs
       terraform init
       terraform validate
-      terraform plan -out plan.tf
-      terraform destroy "plan.tf"
+      terraform plan 
+      terraform destroy -auto-approve
     artifact_paths:
       - "ecs/*"
     concurrency: 1

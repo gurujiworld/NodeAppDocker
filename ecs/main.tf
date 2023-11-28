@@ -34,7 +34,7 @@ resource "aws_security_group" "lb" {
 
 resource "aws_lb" "default" {
   name            = "example-lb"
-  subnets         = ["subnet-0c7242d57050472a5"]
+  subnets         = ["subnet-0c7242d57050472a5,subnet-0ec1d54511102fa93"]
   security_groups = [aws_security_group.lb.id]
 }
 

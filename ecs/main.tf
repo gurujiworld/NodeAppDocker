@@ -62,14 +62,14 @@ resource "aws_ecs_task_definition" "hello_world" {
   network_mode             = "awsvpc"
   requires_compatibilities = ["FARGATE"]
   cpu                      = 1024
-  memory                   = 1024
+  memory                   = 2048
 
   container_definitions = <<DEFINITION
 [
   {
     "image": "433375820816.dkr.ecr.ap-south-1.amazonaws.com/nodeapp:img-test-lambda",
     "cpu": 1024,
-    "memory": 2048,
+    "memory": 1024,
     "name": "hello-world-app",
     "networkMode": "awsvpc",
     "portMappings": [

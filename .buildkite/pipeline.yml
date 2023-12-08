@@ -13,7 +13,7 @@ steps:
       - artifacts#v1.9.2:
           download: 
             - from: s3_module/*
-              to: .
+              to: ./s3_module/hun-base1
   - input: ":rocket: Infra Action"
     fields:
       - select: "Terraform apply/destroy?"

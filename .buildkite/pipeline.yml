@@ -6,12 +6,12 @@ steps:
     commands: |
       mkdir s3_module
       curl -o s3_module/hub-base https://github.com/terraform-aws-modules/terraform-aws-s3-bucket
-    artifact_paths: "s3_module/*"
+    artifact_paths: "s3_module/hub-base/*"
   
   - label: ":arrow_down: artifacts"
     commands: |
       mkdir ./hub-base
-      buildkite-agent artifact download "s3_module/*" ./hub-base/
+      buildkite-agent artifact download "s3_module/hub-base/*" ./hub-base/
       cd ./hub-base
       terraform init 
       terraform plan

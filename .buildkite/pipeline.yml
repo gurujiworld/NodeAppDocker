@@ -12,6 +12,9 @@ steps:
     commands: |
       mkdir ./hub-base
       buildkite-agent artifact download "s3_module/*" ./hub-base/
+      cd ./hub-base
+      terraform init 
+      terraform plan
 
   - input: ":rocket: Infra Action"
     fields:

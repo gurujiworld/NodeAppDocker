@@ -12,8 +12,8 @@ steps:
     plugins:
       - artifacts#v1.9.2:
           download: 
-            - from: "./buildkite/s3_module/*"
-              to: "../hub-base1"
+            - from: s3_module/hub-base
+              to: ../hub-base1
   - input: ":rocket: Infra Action"
     fields:
       - select: "Terraform apply/destroy?"

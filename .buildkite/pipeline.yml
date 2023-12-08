@@ -12,8 +12,8 @@ steps:
     plugins:
       - artifacts#v1.9.2:
           download: 
-            - from: /var/lib/buildkite-agent/builds/ip-10-0-9-92-1/lti/nodeappdocker
-              to: ./s3_module/hun-base1
+            - from: s3_module/*
+              to: /tmp
   - input: ":rocket: Infra Action"
     fields:
       - select: "Terraform apply/destroy?"

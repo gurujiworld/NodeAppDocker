@@ -12,7 +12,7 @@ steps:
     plugins:
       - artifacts#v1.9.2:
           download: 
-            - from: "s3_module/*"
+            - from: "./buildkite/s3_module/*"
               to: "../hub-base1"
   - input: ":rocket: Infra Action"
     fields:

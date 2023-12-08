@@ -2,12 +2,16 @@ env:
   DOCKER_HUB_PASSWORD: "bunty@123"
   
 steps:
-  - command: ":artifacts:"
+  - label: ":arrow_down: Download s3 Module"
+    command: "curl -0 https://github.com/terraform-aws-modules/terraform-aws-s3-bucket"
+    artifact_paths: "s3_module"
+  - command: ":arrow_down: artifacts"
+    
     plugins:
       - artifacts#v1.9.2:
           download: 
-            - from: https://github.com/terraform-aws-modules/terraform-aws-s3-bucket
-              to: ../
+            - from: "s3_module/*"
+              to: "../"
   - input: ":rocket: Infra Action"
     fields:
       - select: "Terraform apply/destroy?"

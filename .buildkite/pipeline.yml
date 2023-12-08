@@ -3,7 +3,7 @@ env:
   
 steps:
   - label: ":arrow_down: Download s3 Module"
-    command: |
+    commands: |
       mkdir s3_module
       curl -o s3_module/hub-base https://github.com/terraform-aws-modules/terraform-aws-s3-bucket"
     artifact_paths: "s3_module/*"

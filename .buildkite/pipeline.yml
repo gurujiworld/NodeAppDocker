@@ -8,12 +8,12 @@ steps:
       curl -o s3_module/hub-base https://github.com/terraform-aws-modules/terraform-aws-s3-bucket
     artifact_paths: "s3_module/*"
   
-  - label: ":arrow_down: artifacts"
-    plugins:
-      - artifacts#v1.9.2:
-          download: 
-            - from: s3_module/*
-              to: hub-base1
+  # - label: ":arrow_down: artifacts"
+  #   plugins:
+  #     - artifacts#v1.9.2:
+  #         download: 
+  #           - from: s3_module/*
+  #             to: hub-base1
   - input: ":rocket: Infra Action"
     fields:
       - select: "Terraform apply/destroy?"

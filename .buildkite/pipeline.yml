@@ -7,9 +7,8 @@ steps:
       mkdir s3_module
       curl -o s3_module/hub-base1 https://github.com/terraform-aws-modules/terraform-aws-s3-bucket
     artifact_paths: "s3_module/*"
-  
+
   - label: ":arrow_down: artifacts"
-    - command: ...
     plugins:
       - artifacts#v1.9.2:
           download: "s3_module/hub-base"

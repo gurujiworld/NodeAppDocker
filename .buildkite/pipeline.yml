@@ -5,15 +5,15 @@ steps:
   - label: ":arrow_down: Download s3 Module"
     commands: |
       mkdir s3_module
-      curl -o s3_module/hub-base1 https://github.com/terraform-aws-modules/terraform-aws-s3-bucket
+      curl -o s3_module https://github.com/terraform-aws-modules/terraform-aws-s3-bucket
     artifact_paths: "s3_module/*"
 
   - label: ":arrow_down: artifacts"
     plugins:
       - artifacts#v1.9.2:
-          download: "s3_module/hub-base1"
+          download: "s3_module/*"
     commands: |
-      cd /var/lib/buildkite-agent/builds/ip-10-0-9-92-1/lti/nodeappdocker
+      cd /var/lib/buildkite-agent/builds/ip-10-0-9-92-1/lti/nodeappdocker/s3_module
       terraform init
       terraform plan
 

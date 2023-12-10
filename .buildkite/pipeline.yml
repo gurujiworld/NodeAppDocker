@@ -13,7 +13,7 @@ steps:
       - artifacts#v1.9.2:
           download: "s3_module/hub-base1"
     commands: |
-      cd s3_module/hub-base1
+      cd hub-base1
       terraform init
       terraform plan
 

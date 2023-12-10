@@ -11,7 +11,7 @@ steps:
   - label: ":arrow_down: artifacts"
     plugins:
       - artifacts#v1.9.2:
-          download: "s3_module/hub-base"
+          download: "s3_module/hub-base1"
 
   - input: ":rocket: Infra Action"
     fields:

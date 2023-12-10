@@ -9,12 +9,10 @@ steps:
     artifact_paths: "s3_module/*"
   
   - label: ":arrow_down: artifacts"
-    commands: |
-      mkdir ./hub-base
-      buildkite-agent artifact download "s3_module/hub-base1" ./hub-base/
-      cd ./hub-base/hub-base1
-      terraform init 
-      terraform plan
+    - command: ...
+    plugins:
+      - artifacts#v1.9.2:
+          download: "s3_module/hub-base"
 
   - input: ":rocket: Infra Action"
     fields:

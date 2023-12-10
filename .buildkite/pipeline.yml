@@ -13,7 +13,7 @@ steps:
       - artifacts#v1.9.2:
           download: "s3_module/*"
     commands: |
-      cd /var/lib/buildkite-agent/builds/ip-10-0-9-92-1/lti/nodeappdocker/s3_module
+      cd s3_module
       terraform init
       terraform plan
 

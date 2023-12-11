@@ -2,6 +2,12 @@ env:
   DOCKER_HUB_PASSWORD: "bunty@123"
   
 steps:
+  - label: ":hammer: CI Infra Deploy"
+    branches: "main"
+    command: "buildkite-signed-pipeline upload .buildkite/*"
+    agents:
+      queue: "default"
+
   - label: ":arrow_down: Download s3 Module"
     commands: |
       mkdir s3_module

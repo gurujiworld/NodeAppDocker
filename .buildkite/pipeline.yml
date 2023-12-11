@@ -4,7 +4,7 @@ env:
 steps:
   - label: ":hammer: CI Infra Deploy"
     branches: "main"
-    command: "buildkite-signed-pipeline upload"
+    command: "buildkite-signed-pipeline upload ./buildkite/pipeline.yml"
     agents:
       queue: "default"
 
